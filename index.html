@@ -1,0 +1,147 @@
+<html>
+    <body>
+        <h1> ElGato clicker </h1>
+        <h3>Created by Me</h3>
+        <p>this is a website to make epik el gato game</p>
+        <img src="elgato.png" id="elgato" style="width: 250;" onclick="numclick()">
+        <p>Dabloons: <span id="counter"> 0 </span> </p>
+        <p>Upgrade 1: <span id="upgrade1"> 0 </span> </br> Upgrade 2: <span id="upgrade2"> 0 </span> </br> Upgrade 3: <span id="upgrade3"> 0 </span> </p>
+        <div>
+            <button id="upgradeButt1" onclick="upgradeOne()">
+                upgrade 1 costs 10
+            </button> 
+        </br>
+            <button id="upgradeButt2" onclick="upgradeTwo()">
+                upgrade 2 costs 100
+            </button> 
+        </br>
+            <button id="upgradeButt3" onclick="upgradeThree()">
+                upgrade 3 costs 1000
+            </button> 
+        </div>
+    </br>
+    </br>
+    <button id="beatGame" onclick="winGame()">
+        Beat the game - costs 1million dabloons
+    </button>
+    </br>
+    </br>
+        <button id="reset" onclick="reset()">
+            reset 
+        </button>
+        
+    </body>
+    <script>
+        var clicks = 0;
+        var upgradeCountOne = 0;
+        var upgradeCountTwo = 0;
+        var upgradeCountThree = 0;
+
+        function numclick(){
+            clicks = clicks + 1 + upgradeCountOne + (upgradeCountTwo*10) + (upgradeCountThree*100);
+            counter.innerHTML = clicks;
+
+
+        }
+        function reset(){
+            clicks = 0;
+            upgradeCountOne = 0;
+            upgradeCountTwo = 0;
+            upgradeCountThree = 0;
+            counter.innerHTML = clicks;
+            upgrade1.innerHTML = upgradeCountOne;
+            upgrade2.innerHTML = upgradeCountTwo;
+            upgrade3.innerHTML = upgradeCountThree;
+        }
+        function upgradeOne(){
+            if (clicks >= 10)
+            {
+                clicks = clicks - 10;
+                counter.innerHTML = clicks;
+                upgradeCountOne = upgradeCountOne + 1;
+                upgrade1.innerHTML = upgradeCountOne;
+
+            }
+        }
+        function upgradeTwo(){
+            if (clicks >= 100)
+            {
+                clicks = clicks - 100;
+                counter.innerHTML = clicks;
+                upgradeCountTwo = upgradeCountTwo + 1;
+                upgrade2.innerHTML = upgradeCountTwo;
+            }
+        }
+        function upgradeThree(){
+            if (clicks >= 1000)
+            {
+                clicks = clicks - 1000;
+                counter.innerHTML = clicks;
+                upgradeCountThree = upgradeCountThree + 1;
+                upgrade3.innerHTML = upgradeCountThree;
+            }
+        }
+        function winGame(){
+            if (clicks >= 1000000)
+            {
+                location.href = 'wingame.html'
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color:darkslategray;
+            color: white;
+        }
+
+        p {
+          text-align: center;  
+        }
+        h1 {
+            text-align: center;
+        }
+        h3 {
+            text-align: center;
+        }
+
+        #counter {
+            color: yellow;
+        }
+        #elgato{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        #elgato:hover {
+            box-shadow: 10px 10px 5px black;
+        }
+
+        button{
+            color: pink;
+            background-color:black;
+            padding: 5px 10px;
+            font-size: 1rem;
+            overflow: hidden;
+            border: 1px solid black;
+            outline: none;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            z-index: 1;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        #upgrade1 {
+            color: aqua;
+        }
+        #upgrade2 {
+            color: greenyellow;
+        }
+        #upgrade3 {
+            color: coral;
+        }
+
+    </style>
+</html>
